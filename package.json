@@ -1,0 +1,19 @@
+{
+  "name": "dushy-imdb-lib",
+  "version": "1.0.0",
+  "description": "JavaScript Library to connect and communicate with In Memory Database created by Dushyant Bhardwaj",
+  "main": "dushy-imdb-lib.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Dushyantbha012/IMDB-JS-LIB.git"
+  },
+  "author": "Dushyant Bhardwaj",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/Dushyantbha012/IMDB-JS-LIB/issues"
+  },
+  "homepage": "https://github.com/Dushyantbha012/IMDB-JS-LIB#readme"
+}

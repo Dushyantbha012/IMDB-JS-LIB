@@ -1,6 +1,6 @@
 {
   "name": "dushy-imdb-lib",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "JavaScript Library to connect and communicate with In Memory Database created by Dushyant Bhardwaj",
   "main": "dushy-imdb-lib.js",
   "scripts": {

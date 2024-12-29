@@ -1,9 +1,13 @@
 name: Publish to npm
 
 on:
-    push:
-      branches:
-        - main
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: write
+  packages: write
 
 jobs:
   build-and-publish:
@@ -11,11 +15,14 @@ jobs:
     steps:
       - name: Check out code
         uses: actions/checkout@v3
-        
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          fetch-depth: 0
+
       - name: Configure Git
         run: |
-          git config --global user.name 'GitHub Actions'
-          git config --global user.email 'github-actions@github.com'
+          git config --global user.name 'github-actions[bot]'
+          git config --global user.email 'github-actions[bot]@users.noreply.github.com'
 
       - name: Use Node
         uses: actions/setup-node@v3
@@ -33,7 +40,10 @@ jobs:
         run: npm publish
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+          
       - name: Push changes
-        run: git push --follow-tags
+        run: |
+          git remote set-url origin https://x-access-token:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git
+          git push --follow-tags
         env:
-            GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

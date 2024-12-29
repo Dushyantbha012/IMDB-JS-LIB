@@ -33,4 +33,7 @@ jobs:
         run: npm publish
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-          
+      - name: Push changes
+        run: git push --follow-tags
+        env:
+            GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
